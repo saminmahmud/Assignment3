@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #FFEFD5;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Meals :</h1>
+    <div class="row">
+        {% for meal in categories %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ meal.strCategoryThumb }}" class="card-img-top" alt="{{ meal.strCategoryThumb }}">
+                    <div class="card-body">
+                        <p class="card-text">Id: {{meal.idCategory}}</p>
+                        <h5 class="card-title">{{ meal.strCategory }}</h5>
+                        <p class="card-text">{{meal.strCategoryDescription | truncatewords:10 }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
